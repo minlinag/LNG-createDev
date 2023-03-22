@@ -1,0 +1,400 @@
+<template>
+  <!-- 安全检查统计 -->
+  <Breadcrumb :titleName="'检查人安全检查统计'">
+    <!-- <template slot="breadcrumbButton"> </template> -->
+    <template slot="appMain">
+      <div id="components-layout-demo-basic" style="width: 100%">
+        <a-layout>
+          <a-layout-content>
+            <a-form-model layout="inline">
+              <a-col :span="8">
+                <a-form-model-item
+                  label="检查时间:"
+                  :labelCol="{ style: 'width: 100px' }"
+                >
+                  <a-range-picker
+                    v-model="rqDate"
+                    valueFormat="YYYY-MM-DD"
+                    @change="onChange"
+                    :placeholder="['开始日期', '结束日期']"
+                  />
+                </a-form-model-item>
+              </a-col>
+              <a-col :span="6">
+                <a-form-model-item>
+                  <a-button
+                    v-Query
+                    class="buttonType"
+                    type="primary"
+                    @click="search"
+                  >
+                    查询
+                  </a-button>
+                  <a-button class="buttonType" @click="resetForm">
+                    重置
+                  </a-button>
+                </a-form-model-item>
+              </a-col>
+            </a-form-model>
+          </a-layout-content>
+        </a-layout>
+      </div>
+
+      <a-table
+        :scroll="{ x: 100 }"
+        @change="paginationChange"
+        :pagination="pagination"
+        :row-key="(record) => record.id"
+        :columns="columns"
+        :dataSource="dataSource"
+        :openSelector="false"
+      >
+      </a-table>
+    </template>
+  </Breadcrumb>
+</template>
+<script>
+import { safetyStatisticPerson, findHeade } from '@/api/securityCheck'
+export default {
+  data() {
+    return {
+      // 检查级别下拉框
+      inspectionLevel: [
+        { label: '公司级检查', value: '公司级检查' },
+        { label: '部门级检查', value: '部门级检查' },
+        { label: '班组级检查', value: '班组级检查' },
+      ],
+      // 检查类别下拉框
+      inspectionCategory: [
+        { label: '电气类', value: '电气类' },
+        { label: '仪表类', value: '仪表类' },
+        { label: '基础类', value: '基础类' },
+        { label: '设备类', value: '设备类' },
+        { label: '装置运行类', value: '装置运行类' },
+        { label: '设计与总图类', value: '设计与总图类' },
+        { label: '应急与消防类', value: '应急与消防类' },
+        { label: '其他', value: '其他' },
+      ],
+      rqDate: [],
+      //翻页页面组件
+
+      pagination: {
+        current: 0,
+        // defaultCurrent: 1,
+        total: 0, // 总数
+        showSizeChanger: true,
+        pageSizeOptions: ['10', '20', '30', '40', '50', '60'],
+        showTotal: (total) => `共 ${total} 条`, // 分页中显示总的数据
+        // hideOnSinglePage: true, // 只有一页时是否隐藏分页器
+        pageSize: 0, // 每页条数，所有页设置统一的条数
+      },
+      //勾选框/选择框组件
+      selectedRowKeys: [],
+      //回传组件
+      echoMap: {},
+      level: [],
+      category: [],
+      //查询所需的数据 外委单位名称｜日期｜状态
+      form: {
+        // inspectionLevel: '公司级检查,部门级检查,班组级检查', //检查级别
+        // inspectionCategory: '', //检查类别
+        startDatetime: "",
+        endDatetime: "",
+      },
+      columns: [
+        {
+          title: '检查人',
+          dataIndex: 'inspectedBy',
+          width: 120,
+          align: 'center',
+        },
+
+        {
+          title: '检查合计',
+          dataIndex: 'checkTotal',
+          align: 'center',
+          width: 100,
+        },
+        {
+          title: '公司级检查',
+          dataIndex: 'corporateCheck',
+          width: 100,
+          align: 'center',
+        },
+        {
+          title: '部门级检查',
+          dataIndex: 'departmentCheck',
+          align: 'center',
+          width: 100,
+        },
+        {
+          title: '班组级检查',
+          dataIndex: 'classCheck',
+          align: 'center',
+          width: 100,
+        },
+        {
+          title: '隐患整改通知单合计',
+          dataIndex: 'hiddenDangerNoticeTotal',
+          align: 'center',
+          width: 150,
+        },
+        {
+          title: '隐患整改回复单合计',
+          dataIndex: 'hiddenDangerReplyTotal',
+          align: 'center',
+          width: 150,
+        },
+        {
+          title: '隐患合计',
+          dataIndex: 'hiddenDangerTotal',
+          align: 'center',
+          width: 100,
+        },
+          {
+              title: '电气类',
+              dataIndex: 'electricSystem',
+              align: 'center',
+              width: 100,
+          },
+          {
+              title: '仪表类',
+              dataIndex: 'instrumentSystem',
+              align: 'center',
+              width: 100,
+          },
+          {
+              title: '基础类',
+              dataIndex: 'foundationClass',
+              align: 'center',
+              width: 100,
+          },
+          {
+              title: '设备类',
+              dataIndex: 'deviceType',
+              align: 'center',
+              width: 100,
+          },
+          {
+              title: '装置运行类',
+              dataIndex: 'deviceOperationClass',
+              align: 'center',
+              width: 100,
+          },
+          {
+              title: '设计与总图类',
+              dataIndex: 'designFormClass',
+              align: 'center',
+              width: 100,
+          },
+          {
+              title: '应急与消防类',
+              dataIndex: 'emergencyFireProtection',
+              align: 'center',
+              width: 100,
+          },
+          {
+              title: '其他',
+              dataIndex: 'rests',
+              align: 'center',
+              width: 100,
+          },
+        {
+          title: '整改合计',
+          dataIndex: 'rectificationTotal',
+          align: 'center',
+          width: 100,
+        },
+        {
+          title: '整改率',
+          dataIndex: 'probability',
+          align: 'center',
+          width: 100,
+          className: 'rectificationBg',
+        },
+      ],
+      //表格中的数据
+      dataSource: [],
+      applicantList: [],
+    }
+  },
+  created() {
+    // this.getHeader()
+    this.safetyStatisticPerson()
+    // this.getapplicant()
+  },
+  mounted() { },
+  methods: {
+    paginationChange(pagination) {
+      this.form.pageNum = pagination.current
+      this.form.pageSize = pagination.pageSize
+      this.safetyStatisticPerson()
+    },
+    handleChange(value) {
+      console.log(`selected ${value}`)
+    },
+    //查询功能
+    search() {
+      this.safetyStatisticPerson()
+    },
+    onChange(value) {
+      // console.log(value);
+      // let date = value
+      this.form.startDatetime = value[0]
+      this.form.endDatetime = value[1]
+      console.log(this.form)
+    },
+    getHeader() {
+      this.columns = [].concat(this.tableColumns)
+      this.tableLevel.forEach((item) => {
+        this.columns.splice(1, 0, item)
+      })
+      this.tableClass.forEach((item) => {
+        this.columns.splice(4, 0, item)
+      })
+      console.log(this.tableColumns)
+    },
+    safetyStatisticPerson() {
+      if (!this.pagination.pageSizeOptions.includes(this.form.pageSize + '')) {
+        this.form.pageSize -= 1
+      }
+      delete this.form.pageSize
+      safetyStatisticPerson(this.form).then((res) => {
+        console.log(res.body, 'resres')
+
+        this.pagination.current = res.body.pageIndex
+        this.pagination.pageSize = res.body.pageSize
+        this.pagination.total = res.body.total
+        let probabilityCompute = res.body.data.map((item) => {
+          let newItem = item
+          newItem.probability = `${(isNaN(
+            parseInt(newItem.rectificationTotal) /
+            parseInt(newItem.hiddenDangerTotal)
+          )
+            ? 0
+            : parseInt(newItem.rectificationTotal) /
+            parseInt(newItem.hiddenDangerTotal)) * 100
+            }%`
+          return newItem
+        })
+
+        let totalInitial = {
+          inspectedBy: '总计',
+          checkTotal: 0,
+          corporateCheck: 0,
+          departmentCheck: 0,
+          classCheck: 0,
+          electricSystem: 0,
+          instrumentSystem: 0,
+          foundationClass: 0,
+          deviceType: 0,
+          deviceOperationClass: 0,
+          designFormClass: 0,
+          emergencyFireProtection: 0,
+          rests: 0,
+          hiddenDangerTotal: 0,
+          hiddenDangerNoticeTotal: 0,
+          hiddenDangerReplyTotal: 0,
+          rectificationTotal: 0,
+          probability: 0,
+        }
+
+        for (const key in totalInitial) {
+          if (Object.hasOwnProperty.call(totalInitial, key)) {
+            let element = totalInitial[key]
+            if (key != 'inspectedBy') {
+              for (let index = 0; index < probabilityCompute.length; index++) {
+                const e = probabilityCompute[index]
+                element += +e[key]
+              }
+              let total = isNaN(element) ? 0 : element
+              totalInitial[key] =
+                key == 'probability'
+                  ? `${(isNaN(
+                    parseInt(totalInitial.rectificationTotal) /
+                    parseInt(totalInitial.hiddenDangerTotal)
+                  )
+                    ? 0
+                    : parseInt(totalInitial.rectificationTotal) /
+                    parseInt(totalInitial.hiddenDangerTotal)) * 100
+                  }%`
+                  : total
+            }
+          }
+        }
+        this.dataSource = [...probabilityCompute, ...[totalInitial]]
+        if (
+          probabilityCompute.length >= this.pagination.pageSize &&
+          this.pagination.pageSizeOptions.includes(
+            this.pagination.pageSize + ''
+          )
+        ) {
+          this.pagination.pageSize = probabilityCompute.length + 1
+        }
+      })
+    },
+
+    //重置输入
+    resetForm() {
+      this.level = []
+      this.category = []
+      this.form = {
+        startDatetime: "",
+        endDatetime: "",
+        // inspectionLevel: '公司级检查,部门级检查,班组级检查', //检查级别
+        // inspectionCategory: '', //检查类别
+      }
+      this.rqDate = []
+      this.safetyStatisticPerson()
+    },
+    //上方小提示框
+    success() {
+      this.$message.success('This is a success message')
+    },
+    error() {
+      this.$message.error('This is an error message')
+    },
+    warning() {
+      this.$message.warning('This is a warning message')
+    },
+  },
+}
+</script>
+<style scoped lang="less">
+#components-layout-demo-basic .ant-layout-content {
+  background: rgb(255, 255, 255);
+  line-height: 50px;
+  min-height: 50px;
+}
+#components-layout-demo-basic > .ant-layout{
+  margin-bottom: 0px;
+}
+.ant-calendar-picker-input.ant-input {
+  width: 300px;
+}
+
+.ant-form-item-control {
+  width: 100%;
+}
+
+.ant-select-selection--single {
+  width: 180px;
+}
+
+.edit {
+  margin-right: 10px;
+  color: #1890ff;
+  cursor: pointer;
+}
+.ant-table-tbody /deep/ .rectificationBg {
+  background-color: rgb(51, 49, 49) !important;
+}
+.mutiple_form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  ::v-deep .ant-form-item-control {
+    height: 34px;
+  }
+}
+</style>

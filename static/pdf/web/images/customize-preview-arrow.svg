@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <g id="箭头" transform="translate(0 -0.363)">
+    <rect id="矩形_241" data-name="矩形 241" width="45" height="45" rx="22.5" transform="translate(0 0.364)" fill="none" opacity="0.135"/>
+    <path id="icon" d="M1.437,0A1.437,1.437,0,0,0,.42,2.453l9.5,9.5a1.437,1.437,0,0,0,2.033-2.033L2.453.42A1.436,1.436,0,0,0,1.437,0ZM20.428,0a1.436,1.436,0,0,0-1.016.42l-9.5,9.5a1.437,1.437,0,1,0,2.033,2.033l9.5-9.5A1.437,1.437,0,0,0,20.428,0Z" transform="translate(17.863 34.004) rotate(-90)" fill="#fff" opacity="0.8"/>
+  </g>
+</svg>

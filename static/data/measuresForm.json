@@ -1,0 +1,612 @@
+{
+  "受限空间作业": [
+    {
+      "label": "受限空间名称",
+      "value": "",
+      "labelKey": "confinedSpace",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "通用",
+          "value": "通用"
+        },
+        {
+          "label": "升级管理",
+          "value": "升级管理"
+        }
+      ]
+    },
+    {
+      "label": "受限空间内原有介质名称",
+      "value": "",
+      "labelKey": "confinedSpacemedia",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "随身物品清单",
+      "value": "",
+      "labelKey": "personalEffects",
+      "type": "textArea",
+      "colSpan": 24
+    }
+  ],
+  "吊装作业": [
+    {
+      "label": "吊具名称",
+      "value": "",
+      "labelKey": "slingName",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "一级",
+          "value": "一级"
+        },
+        {
+          "label": "二级",
+          "value": "二级"
+        },
+        {
+          "label": "三级",
+          "value": "三级"
+        }
+      ]
+    },
+    {
+      "label": "起吊质量",
+      "value": "",
+      "labelKey": "liftingMassAndLevel",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "司索人",
+      "value": "",
+      "labelKey": "rigger",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "指挥人员",
+      "value": "",
+      "labelKey": "commander",
+      "type": "input",
+      "colSpan": 12
+    }
+  ],
+  "动火作业": [
+    {
+      "label": "动火作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "一级",
+          "value": "一级"
+        },
+        {
+          "label": "二级",
+          "value": "二级"
+        },
+        {
+          "label": "特级",
+          "value": "特级"
+        }
+      ]
+    },
+    {
+      "label": "动火方式",
+      "value": [],
+      "labelKey": "hotWorkPrepare",
+      "type": "selectAll",
+      "isRules": true,
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "电焊",
+          "value": "电焊"
+        },
+        {
+          "label": "气割",
+          "value": "气割"
+        },
+        {
+          "label": "等离子切割",
+          "value": "等离子切割"
+        },
+        {
+          "label": "角磨机",
+          "value": "角磨机"
+        },
+        {
+          "label": "热熔器",
+          "value": "热熔器"
+        },
+        {
+          "label": "手电钻",
+          "value": "手电钻"
+        },
+        {
+          "label": "往复锯",
+          "value": "往复锯"
+        }
+      ]
+    },
+    {
+      "label": "其他动火方式",
+      "value": "",
+      "isRules": true,
+      "labelKey": "hotWorkElse",
+      "type": "input",
+      "colSpan": 12
+    }
+  ],
+  "动土作业": [
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "通用",
+          "value": "通用"
+        },
+        {
+          "label": "升级管理",
+          "value": "升级管理"
+        }
+      ]
+    }
+  ],
+  "盲板抽堵作业": [
+    {
+      "label": "作业类别",
+      "value": "",
+      "labelKey": "jobType",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "堵盲板",
+          "value": "堵盲板"
+        },
+        {
+          "label": "抽盲板",
+          "value": "抽盲板"
+        }
+      ]
+    },
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "通用",
+          "value": "通用"
+        },
+        {
+          "label": "升级管理",
+          "value": "升级管理"
+        }
+      ]
+    }
+  ],
+  "断路作业": [
+    {
+      "label": "涉及相关单位",
+      "value": "",
+      "labelKey": "breakeCompany",
+      "type": "input",
+      "colSpan": 24
+    },
+    {
+      "label": "断路原因",
+      "value": "",
+      "labelKey": "breakeReason",
+      "type": "input",
+      "colSpan": 24
+    },
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "通用",
+          "value": "通用"
+        },
+        {
+          "label": "升级管理",
+          "value": "升级管理"
+        }
+      ]
+    }
+  ],
+  "临时用电作业": [
+    {
+      "label": "电源接入点",
+      "value": "",
+      "labelKey": "accessPointAndPower",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "通用",
+          "value": "通用"
+        },
+        {
+          "label": "升级管理",
+          "value": "升级管理"
+        }
+      ]
+    },
+    {
+      "label": "工作电压",
+      "value": "",
+      "labelKey": "voltage",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "用电设备名称",
+      "value": "",
+      "labelKey": "nameAndRatedPower",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "用电人",
+      "value": "",
+      "labelKey": "powerConsumer",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "是否在火灾爆炸区域",
+      "value": "",
+      "labelKey": "whetherInExplosionArea",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "是",
+          "value": "是"
+        },
+        {
+          "label": "否",
+          "value": "否"
+        }
+      ]
+    }
+  ],
+  "高处作业": [
+    {
+      "label": "作业高度",
+      "value": "",
+      "labelKey": "workingHeight",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "一级",
+          "value": "一级"
+        },
+        {
+          "label": "二级",
+          "value": "二级"
+        },
+        {
+          "label": "三级",
+          "value": "三级"
+        },
+        {
+          "label": "四级",
+          "value": "四级"
+        }
+      ]
+    }
+  ],
+  "管线打开作业": [
+    {
+      "label": "管线打开",
+      "value": "1",
+      "labelKey": "openLoctationDiagram",
+      "type": "radio",
+      "data": [
+        {
+          "label": "是",
+          "value": "1"
+        },
+        {
+          "label": "否",
+          "value": "0"
+        }
+      ],
+      "colSpan": 12
+    },
+    {
+      "label": "附管线打开",
+      "value": "1",
+      "labelKey": "openSafePlan",
+      "type": "radio",
+      "data": [
+        {
+          "label": "是",
+          "value": "1"
+        },
+        {
+          "label": "否",
+          "value": "0"
+        }
+      ],
+      "colSpan": 12
+    },
+    {
+      "label": "作业级别",
+      "value": "",
+      "labelKey": "hotWorkLevel",
+      "type": "select",
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "通用",
+          "value": "通用"
+        },
+        {
+          "label": "升级管理",
+          "value": "升级管理"
+        }
+      ]
+    },
+    {
+      "label": "清理",
+      "value": [],
+      "labelKey": "safetyMeasures_Clear",
+      "type": "selectAll",
+      "data": [
+        {
+          "label": "氮气置换",
+          "value": "氮气置换"
+        },
+        {
+          "label": "空气吹扫",
+          "value": "空气吹扫"
+        },
+        {
+          "label": "化学清洗",
+          "value": "化学清洗"
+        },
+        {
+          "label": "水洗",
+          "value": "水洗"
+        },
+        {
+          "label": "蒸煮",
+          "value": "蒸煮"
+        },
+        {
+          "label": "泄压",
+          "value": "泄压"
+        },
+        {
+          "label": "排气",
+          "value": "排气"
+        },
+        {
+          "label": "排液",
+          "value": "排液"
+        },
+        {
+          "label": "气体检测合格",
+          "value": "气体检测合格"
+        }
+      ],
+      "colSpan": 12
+    },
+    {
+      "label": "清理其他",
+      "value": "",
+      "labelKey": "safetyMeasures_Clear_Others",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "隔离",
+      "value": [],
+      "labelKey": "safetyMeasures_Isolate",
+      "type": "selectAll",
+      "data": [
+        {
+          "label": "双重隔离",
+          "value": "双重隔离"
+        },
+        {
+          "label": "双截止阀",
+          "value": "双截止阀"
+        },
+        {
+          "label": "单截止阀",
+          "value": "单截止阀"
+        },
+        {
+          "label": "已上锁挂牌",
+          "value": "已上锁挂牌"
+        }
+      ],
+      "colSpan": 12
+    },
+    {
+      "label": "隔离其他",
+      "value": "",
+      "labelKey": "safetyMeasures_Isolate_Others",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "液/体控制设备",
+      "value": [],
+      "labelKey": "safetyMeasures_ControlEquipment",
+      "type": "selectAll",
+      "data": [
+        {
+          "label": "抽吸系统",
+          "value": "抽吸系统"
+        },
+        {
+          "label": "通风系统",
+          "value": "通风系统"
+        },
+        {
+          "label": "水管",
+          "value": "水管"
+        },
+        {
+          "label": "安全冲淋",
+          "value": "安全冲淋"
+        },
+        {
+          "label": "消防车",
+          "value": "消防车"
+        },
+        {
+          "label": "砂袋",
+          "value": "砂袋"
+        },
+        {
+          "label": "应急预案",
+          "value": "应急预案"
+        },
+        {
+          "label": "救援",
+          "value": "救援"
+        },
+        {
+          "label": "路障/警戒线",
+          "value": "路障/警戒线"
+        },
+        {
+          "label": "连接火炬",
+          "value": "连接火炬"
+        },
+        {
+          "label": "泄漏收集桶",
+          "value": "泄漏收集桶"
+        },
+        {
+          "label": "吸油物品",
+          "value": "吸油物品"
+        }
+      ],
+      "colSpan": 12
+    },
+    {
+      "label": "设备其他",
+      "value": "",
+      "labelKey": "safetyMeasures_ControlEquipment_Others",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "个人防护装备",
+      "value": [],
+      "labelKey": "safetyPreparation_ProtectEqm",
+      "type": "selectAll",
+      "data": [
+        {
+          "label": "安全眼镜",
+          "value": "安全眼镜"
+        },
+        {
+          "label": "全封闭眼罩",
+          "value": "全封闭眼罩"
+        },
+        {
+          "label": "面罩",
+          "value": "面罩"
+        },
+        {
+          "label": "安全帽",
+          "value": "安全帽"
+        },
+        {
+          "label": "耳塞",
+          "value": "耳塞"
+        },
+        {
+          "label": "防化服",
+          "value": "防化服"
+        },
+        {
+          "label": "安全鞋",
+          "value": "安全鞋"
+        },
+        {
+          "label": "绝缘服",
+          "value": "绝缘服"
+        },
+        {
+          "label": "过滤式呼吸器",
+          "value": "过滤式呼吸器"
+        },
+        {
+          "label": "手套",
+          "value": "手套"
+        }
+      ],
+      "colSpan": 12
+    },
+    {
+      "label": "个人防护装备其他",
+      "value": "",
+      "labelKey": "safetyPreparation_Others",
+      "type": "input",
+      "colSpan": 12
+    },
+    {
+      "label": "安全措施",
+      "value": "",
+      "labelKey": "safetyMeasures",
+      "type": "textArea",
+      "colSpan": 12
+    }
+  ]
+}

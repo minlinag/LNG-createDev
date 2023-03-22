@@ -1,0 +1,8 @@
+<svg id="适应屏幕" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <rect id="矩形_601" data-name="矩形 601" width="60" height="60" fill="#2f80ed" opacity="0"/>
+  <path id="比例icon" d="M121.633,164.1H87.959c-3.094,0-5.612-2.123-5.612-4.734V132.734c0-2.609,2.519-4.734,5.612-4.734h33.674c3.1,0,5.612,2.125,5.612,4.734v26.637C127.245,161.982,124.729,164.1,121.633,164.1ZM87.959,129.894a3.142,3.142,0,0,0-3.367,2.84v26.637a3.142,3.142,0,0,0,3.367,2.84h33.674a3.142,3.142,0,0,0,3.367-2.84V132.734a3.142,3.142,0,0,0-3.367-2.84Z" transform="translate(-74.846 -116.052)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+  <g id="矩形_729" data-name="矩形 729" transform="translate(17.45 22.104)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <rect width="25" height="17" rx="3" stroke="none"/>
+    <rect x="1" y="1" width="23" height="15" rx="2" fill="none"/>
+  </g>
+</svg>

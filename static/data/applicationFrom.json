@@ -1,0 +1,858 @@
+{
+  "申请": [
+    {
+      "label": "状态",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "recordState",
+      "type": "select",
+      "width": 150,
+      "colSpan": 12,
+      "data": [
+        { "label": "已保存", "value": "1" },
+        { "label": "已提交", "value": "2" },
+        { "label": "审批中", "value": "3" },
+        { "label": "已审批", "value": "4" },
+        { "label": "已拒绝", "value": "5" },
+        { "label": "未保存", "value": "" }
+      ]
+    },
+    {
+      "label": "申请编号",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "requisitionNo",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "维护级别",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "maintenanceLevel",
+      "type": "select",
+      "width": 150,
+      "colSpan": 12,
+      "vDecorator":[
+        { "required": true, "message": "请选择维护级别", "trigger": "blur" }
+      ],
+      "data": [
+        {
+          "value": "一级",
+          "label": "一级"
+        },
+        {
+          "value": "二级",
+          "label": "二级"
+        },
+        {
+          "value": "三级",
+          "label": "三级"
+        },
+        {
+          "value": "四级",
+          "label": "四级"
+        },
+        {
+          "value": "五级",
+          "label": "五级"
+        },
+        {
+          "value": "六级",
+          "label": "六级"
+        }
+      ]
+    },
+    {
+      "label": "是否在账设备",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "whetherInAccountEqm",
+      "type": "select",
+      "width": 150,
+      "colSpan": 12,
+      "data": [
+        {
+          "label": "是",
+          "value": 1
+        },
+        {
+          "label": "否",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "设备名称",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "deviceName",
+      "type": "btnText",
+      "click": "openList",
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "设备位号",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "deviceCode",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "作业区域",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workArea",
+      "type": "select",
+      "width": 150,
+      "colSpan": 12,
+      "vDecorator":[
+        { "required": true, "message": "请选择作业区域", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "是",
+          "value": 1
+        },
+        {
+          "label": "否",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "紧急程度",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "urgencyLevel",
+      "type": "select",
+      "width": 150,
+      "colSpan": 12,
+      "vDecorator":[
+        { "required": true, "message": "请选择紧急程度", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "紧急",
+          "value": "紧急"
+        },
+        {
+          "label": "一般",
+          "value": "一般"
+        }
+      ]
+    },
+    {
+      "label": "是否具备检维修条件",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "whetherHaveInspectionCondition",
+      "type": "select",
+      "width": 150,
+      "colSpan": 12,
+      "vDecorator":[
+        { "required": true, "message": "请选择是否具备检维修条件", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "是",
+          "value": 1
+        },
+        {
+          "label": "否",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "是否需要润滑",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "needLubricate",
+      "type": "select",
+      "width": 150,
+      "colSpan": 12,
+      "vDecorator":[
+        { "required": true, "message": "请选择是否需要润滑", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "是",
+          "value": 1
+        },
+        {
+          "label": "否",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "故障描述说明",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "faultDescription",
+      "type": "textArea",
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "申请人",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "applyUser",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入申请人", "trigger": "blur" }
+      ],
+      "width": 150,
+      "colSpan":12
+    },
+    {
+      "label": "申请单位",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "applyUnit",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12,
+      "vDecorator":[
+        { "required": true, "message": "请输入申请单位", "trigger": "blur" }
+      ],
+      "data": []
+    },
+    {
+      "label": "申请日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "applyDateTime",
+      "type": "dataTime",
+      "vDecorator":[
+        { "required": true, "message": "请选择申请日期", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 12
+    }
+  ],
+  "通知": [
+    {
+      "label": "派工状态",
+      "value": "",
+      "labelKey": "dispatchStatus",
+      "isTrue": false,
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "工单编号",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "informNo",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "关联申请单",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "relevancyRequisition",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "负责人",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workPersonInCharge",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入负责人", "trigger": "blur" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "接收站联系人",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "stationPersonInCharge",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入接收站负责人", "trigger": "blur" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "检维修类型",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "maintenanceType",
+      "type": "select",
+      "width": 150,
+      "colSpan": 8,
+      "vDecorator":[
+        { "required": true, "message": "请选择检维修类型", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "预防性",
+          "value": "预防性"
+        },
+        {
+          "label": "故障性",
+          "value": "故障性"
+        },
+        {
+          "label": "其他",
+          "value": "其他"
+        }
+      ]
+    },
+    {
+      "label": "是具备检维修规程",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "whetherHaveInspectionRule",
+      "type": "select",
+      "width": 150,
+      "colSpan": 8,
+      "vDecorator":[
+        { "required": true, "message": "请选择是否有检维修规程", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "是",
+          "value": 1
+        },
+        {
+          "label": "否",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "是否需要润滑",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "needLubricate",
+      "type": "select",
+      "vDecorator":[
+        { "required": true, "message": "请选择是否需要润滑", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8,
+      "data": [
+        {
+          "label": "是",
+          "value": 1
+        },
+        {
+          "label": "否",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "检维修名称",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "inspectionName",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入检维修名称", "trigger": "blur" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "作业区域",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workArea",
+      "type": "select",
+      "vDecorator":[
+        { "required": true, "message": "请选择作业区域", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "设备名称",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "deviceName",
+      "type": "btnText",
+      "click": "openList",
+      "vDecorator":[
+        { "required": true, "message": "请选择设备名称", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "设备位号",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "deviceCode",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "建议开始日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workStartTime",
+      "type": "dataTime",
+      "vDecorator":[
+        { "required": true, "message": "请选择开始日期", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "建议结束日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workEndTime",
+      "type": "dataTime",
+      "vDecorator":[
+        { "required": true, "message": "请选择结束日期", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "作业单位",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workUnit",
+      "type": "select",
+      "vDecorator":[
+        { "required": true, "message": "请输入作业单位", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8,
+      "data": []
+    }
+  ],
+  "作业计划": [
+    {
+      "label": "计划开始作业日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "startWorkTime",
+      "type": "dataTimes",
+      "vDecorator":[
+        { "required": true, "message": "请选择开始作业日期", "trigger": "change" }
+      ],
+      "width": 100,
+      "colSpan": 8
+    },
+    {
+      "label": "计划结束作业日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "endWorkTime",
+      "type": "dataTimes",
+      "vDecorator":[
+        { "required": true, "message": "请选择结束作业日期", "trigger": "change" }
+      ],
+      "width": 100,
+      "colSpan": 8
+    },
+    {
+      "label": "作业负责人",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workPersonInCharge",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入作业负责人", "trigger": "blur" }
+      ],
+     "width": 100,
+      "colSpan": 8
+    },
+    {
+      "label": "作业监护人",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "operationSupervisor",
+      "vDecorator":[
+        { "required": true, "message": "请输入作业监护人", "trigger": "blur" }
+      ],
+      "type": "input",
+     "width": 100,
+      "colSpan": 8
+    },
+    {
+      "label": "作业组成员",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "operationSupervisorMembers",
+      "vDecorator":[
+        { "required": true, "message": "请输入作业组成员", "trigger": "blur" }
+      ],
+      "type": "input",
+     "width": 100,
+      "colSpan": 8
+    },
+    {
+      "label": "工作内容",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "jobContent",
+      "type": "textArea",
+      "vDecorator":[
+        { "required": true, "message": "请输入工作内容", "trigger": "blur" }
+      ],
+     "width": 100,
+      "colSpan": 24
+    },
+    {
+      "label": "安全提示",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "safetyTips",
+      "type": "textArea",
+      "vDecorator":[
+        { "required": true, "message": "请输入安全提示", "trigger": "blur" }
+      ],
+     "width": 100,
+      "colSpan": 24
+    }
+  ],
+  "作业过程": [
+    {
+      "label": "作业日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入作业日期", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "相关作业票",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "资料出库调拨单",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12
+    }
+  ],
+  "作业验收": [
+    {
+      "label": "作业验收日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入作业验收日期", "trigger": "blur" }
+      ],
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "属地单位验收意见",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "检维修中心验收意见",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12
+    },
+    {
+      "label": "作业单位验收意见",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "",
+      "type": "input",
+      "width": 150,
+      "colSpan": 12
+    }
+  ],
+  "检定通知": [
+    {
+      "label": "派工状态",
+      "value": "",
+      "labelKey": "recordStatus",
+      "lastKey": "recordState",
+      "isTrue": false,
+      "type": "select",
+      "width": 150,
+      "colSpan": 8,
+      "data":[
+        {"label":"已保存","value":1},
+        {"label":"已提交","value":2},
+        {"label":"审批中","value":3},
+        {"label":"已审批","value":4},
+        {"label":"已拒绝","value":5},
+        {"label":"已取消","value":6},
+        {"label":"已关闭","value":7}
+      ]
+    },
+    {
+      "label": "工单编号",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "requisitionNo",
+      "lastKey": "requisitionNo",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "关联申请单",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "applicationFormNo",
+      "lastKey": "requisitionNo",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "设备名称",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "eqmName",
+      "lastKey": "deviceName",
+      "type": "input",
+      "click": "openList",
+      "vDecorator":[
+        { "required": true, "message": "请选择设备名称", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "设备位号",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "eqmNo",
+      "lastKey": "deviceCode",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "所属设备",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "belongToEqm",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "负责人",
+      "value": "",
+      "isTrue": false,
+      "labelKey": "createdUser",
+      "lastKey": "applyUser",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入负责人", "trigger": "blur" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "接受站负责人",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "deviceCode",
+      "labelKey": "deviceCode",
+      "type": "input",
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "维护级别",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "maintenanceLevel",
+      "lastKey": "maintenanceLevel",
+      "type": "select",
+      "vDecorator":[
+        { "required": true, "message": "请选择维护级别", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8,
+      "data": [
+        {
+          "label": "一级",
+          "value": "一级"
+        },
+        {
+          "label": "二级",
+          "value": "二级"
+        },
+        {
+          "label": "三级",
+          "value": "三级"
+        },
+        {
+          "label": "四级",
+          "value": "四级"
+        },
+        {
+          "label": "五级",
+          "value": "五级"
+        },
+        {
+          "label": "六级",
+          "value": "六级"
+        }
+      ]
+    },
+    {
+      "label": "作业区域",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workArea",
+      "lastKey": "workArea",
+      "type": "select",
+      "vDecorator":[
+        { "required": true, "message": "请选择作业区域", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "检维修类型",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "maintenanceType",
+      "lastKey": "maintenanceType",
+      "type": "select",
+      "width": 150,
+      "colSpan": 8,
+      "vDecorator":[
+        { "required": true, "message": "请选择检维修类型", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "预防性",
+          "value": "预防性"
+        },
+        {
+          "label": "故障性",
+          "value": "故障性"
+        },
+        {
+          "label": "其他",
+          "value": "其他"
+        }
+      ]
+    },
+    {
+      "label": "是否有检维修规程",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "whetherHaveInspectionRule",
+      "lastKey": "whetherHaveInspectionRule",
+      "type": "select",
+      "width": 150,
+      "colSpan": 8,
+      "vDecorator":[
+        { "required": true, "message": "请选择是否有检维修规程", "trigger": "change" }
+      ],
+      "data": [
+        {
+          "label": "是",
+          "value": 1
+        },
+        {
+          "label": "否",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "作业单位",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workUnit",
+      "lastKey": "workUnit",
+      "type": "select",
+      "vDecorator":[
+        { "required": true, "message": "请输入作业单位", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8,
+      "data": []
+    },
+    {
+      "label": "检维修名称",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "inspectionName",
+      "lastKey": "inspectionName",
+      "type": "input",
+      "vDecorator":[
+        { "required": true, "message": "请输入检维修名称", "trigger": "blur" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "建议开始日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workStartTime",
+      "lastKey": "workStartTime",
+      "type": "dataTime",
+      "vDecorator":[
+        { "required": true, "message": "请选择开始日期", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    },
+    {
+      "label": "建议结束日期",
+      "value": "",
+      "isTrue": true,
+      "labelKey": "workEndTime",
+      "lastKey": "workEndTime",
+      "type": "dataTime",
+      "vDecorator":[
+        { "required": true, "message": "请选择结束日期", "trigger": "change" }
+      ],
+      "width": 150,
+      "colSpan": 8
+    }
+
+  ]
+}

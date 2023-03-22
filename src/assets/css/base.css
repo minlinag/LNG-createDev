@@ -1,0 +1,63 @@
+.buttonType{
+    font-size: 14px;
+    margin-left: 10px;
+}
+.ant-form-inFo {
+    /* 注意需要在当前dom底部进行两层盒子 */
+    display: flex;
+    justify-content: space-between;
+}
+.buttonStyle{
+    margin-right: 8px;
+}
+.ant-form-item-control-wrapper{
+    display: inline-block;
+}
+.ant-modal{
+    display: flex;
+    justify-content: center;
+}
+#app .section::-webkit-scrollbar {
+    width: 16px;
+}
+.ant-form{
+    overflow: hidden;
+}
+.ant-form-item-control-wrapper{
+    overflow: hidden;
+    width: 100%;
+}
+.ant-form-item{
+    display: flex;
+}
+.section::-webkit-scrollbar-track {
+
+    background-color: #e4e4e4;
+
+    border-radius: 100px;
+}
+
+.section::-webkit-scrollbar-thumb {
+
+    background-color: #d4aa70;
+
+    border-radius: 100px;
+
+}
+.ant-modal-content{
+    width: 950px;
+}
+.ant-menu{
+    overflow: auto;
+    height: 90%;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+  }
+.ant-btn{
+margin-left: 10px;
+}
+.ant-upload .ant-btn{
+    margin-left: 0 !important;
+}
